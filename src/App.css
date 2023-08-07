@@ -22,19 +22,18 @@
   max-width: 80%;
   max-height: 80%;
   transition: transform 0.5s;
-  /* opacity: 0; */
+  opacity: 0;
   animation: 2s hideValue linear;
 }
 
 @keyframes hideValue {
-  0%, 100% {
+  0%, 90% {
     opacity: 1;
   }
 
-  /* 
   100% {
     opacity: 0;
-  } */
+  }
 }
 
 .card.active {

@@ -6,46 +6,14 @@ const Cards = () => {
     const max = 18;
     const generateRandom = (min, max) => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
-      };
+    };
     const groups = Array.from({ length: max }, () => generateRandom(min, max));
-  const [items, setItems] = useState([
-    { val: groups[0], stat: "" },
-    { val: groups[0], stat: "" },
-    { val: groups[1], stat: "" },
-    { val: groups[1], stat: "" },
-    { val: groups[2], stat: "" },
-    { val: groups[2], stat: "" },
-    { val: groups[3], stat: "" },
-    { val: groups[3], stat: "" },
-    { val: groups[4], stat: "" },
-    { val: groups[4], stat: "" },
-    { val: groups[5], stat: "" },
-    { val: groups[5], stat: "" },
-    { val: groups[6], stat: "" },
-    { val: groups[6], stat: "" },
-    { val: groups[7], stat: "" },
-    { val: groups[7], stat: "" },
-    { val: groups[8], stat: "" },
-    { val: groups[8], stat: "" },
-    { val: groups[9], stat: "" },
-    { val: groups[9], stat: "" },
-    { val: groups[10], stat: "" },
-    { val: groups[10], stat: "" },
-    { val: groups[11], stat: "" },
-    { val: groups[11], stat: "" },
-    { val: groups[12], stat: "" },
-    { val: groups[12], stat: "" },
-    { val: groups[13], stat: "" },
-    { val: groups[13], stat: "" },
-    { val: groups[14], stat: "" },
-    { val: groups[14], stat: "" },
-    { val: groups[15], stat: "" },
-    { val: groups[15], stat: "" },
-    { val: groups[16], stat: "" },
-    { val: groups[16], stat: "" },
-    { val: groups[17], stat: "" },
-    { val: groups[17], stat: "" },
-].sort(() => Math.random() - 0.5));
+    const [items, setItems] = useState(
+        Array.from({ length: groups.length * 2 }, (_, index) => ({
+            val: groups[Math.floor(index / 2)],
+            stat: ""
+        })).sort(() => Math.random() - 0.5)
+    );
 
     const [prev, setPrev] = useState(-1)
     function handleClick(idx){
